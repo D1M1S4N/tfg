@@ -1,6 +1,7 @@
 import pandas as pd
 import MetaTrader5 as mt5
 import os
+from correct_data import correct_candle_data, correct_tick_data
 
 def get_tick_data(symbol, start_date, end_date):
     """
