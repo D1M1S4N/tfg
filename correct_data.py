@@ -7,6 +7,7 @@ def correct_candle_data(df: pd.DataFrame) -> pd.DataFrame:
     :return: Corrected DataFrame.
     """
     df = df.drop(columns = ['real_volume'], axis = 1)
+    df = df.rename(columns = {'tick_volume': 'volume'})
     
     df['spread'] = df['spread'] / 100000
     df['time'] = pd.to_datetime(df['time'], unit='s')

@@ -78,6 +78,24 @@ def save_to_csv(df, filename):
     
     df.to_csv(file_path, index=False)
     print(f"Data saved to {file_path}")
+    
+def load_from_csv(filename) -> pd.DataFrame:
+    """
+    Load a DataFrame from a CSV file.
+    
+    :param filename: The name of the file to load the DataFrame from.
+    :return: The loaded DataFrame.
+    """
+    data_folder = os.path.join(os.path.dirname(__file__), 'data')
+    
+    file_path = os.path.join(data_folder, filename)
+    
+    if not os.path.exists(file_path):
+        print(f"File {file_path} does not exist.")
+        return None
+    
+    df = pd.read_csv(file_path)
+    return df
 
 def timeframe_to_string(timeframe):
     """
